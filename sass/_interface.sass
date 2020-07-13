@@ -1,0 +1,125 @@
+// Основной шрифт на сайте ==================================================    
+*
+    font-family: $font-family
+    color: $text-color
+// класс применяемый при использовании меню бургер
+.lock
+    overflow: hidden
+// класс применяемый при использовании меню бургер
+
+
+// Настройки контейнера ==================================================    
+    
+.container
+	width: 1170px
+	margin: 0 auto
+
+
+@media (max-width: 1200px) 
+    .container 
+        width: 970px
+
+@media (max-width: 990px) 
+    .container 
+        max-width: 750px
+        width: 95%
+
+@media (max-width: 440px) 
+    .container 
+        max-width: 320px
+        width: 85%
+  
+// Настройки контейнера ==================================================    
+    
+// Миксины =============================================================
+@mixin flexbox()
+    display: flex
+    font-size: 0
+    
+    
+.btn
+    position: relative
+    display: inline-block
+    padding: 0px 33px
+    height: 56px
+    line-height: 56px
+    overflow: hidden
+    background-color: $main-color
+    font-size: 16px
+    font-weight: 700
+    letter-spacing: 1px
+    text-transform: uppercase
+    text-align: center
+    min-width: 270px
+    &::after
+        content: ''
+        position: absolute
+        width: 0
+        transition: all 0.6s ease 0s
+        height: 100%
+        left: 50%
+        top: 0
+        background-color: #00526b
+    span
+        position: relative
+        color: #ffffff
+        z-index: 2
+    &:hover
+        &::after
+            left: 0
+            width: 100%
+    
+@media (max-width: 767px)
+    .btn
+        @include flexbox
+        justify-content: center
+        align-items: center
+        font-size: 14px
+        line-height: 18px
+        
+// Повторяющиеся элементы  ===============================
+.bluebg
+    position: relative
+    overflow: hidden
+    &::after
+        content: ''
+        position: absolute
+        transform: rotate(20deg)
+        width: 47%
+        height: 130%
+        left: -16%
+        top: -120px
+        background-image: linear-gradient(198deg, #007397 0%, rgba(0, 115, 151, 0) 100%)
+    
+    
+.title
+    color: $title-color
+    +pts
+    font-size: 32px
+    font-weight: 700
+    letter-spacing: 1px
+    line-height: 48px
+    text-transform: uppercase   
+@media (max-width: 440px)
+    .title
+        font-size: 28px
+        line-height: 36px
+
+    
+    
+// Настройка ibg ==================================================    
+    
+.ibg
+    background-position: center
+    background-size: cover
+    background-repeat: no-repeat
+    position: relative
+    
+.ibg img
+    width: 0
+    height: 0
+    position: absolute
+    top: 0
+    left: 0
+    opacity: 0
+    visibility: hidden
